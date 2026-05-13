@@ -19,7 +19,12 @@ public class CajaCollisionDetection : MonoBehaviour
         if (col.gameObject.CompareTag("Player")){
             Destroy(col.gameObject);
         }else if(col.gameObject.CompareTag("Piso")){
-            //reposicionarse
+            
+            float [] posiciones = { -2f, 0f, 2f };
+            float x = posiciones[Random.Range(0, posiciones.Length)];
+            transform.position = new Vector3(x, transform.position.y + 10f, 0f);
+            CajaMovement mov = GetComponent<CajaMovement>();
+            if (mov != null) mov.AumentarVelocidad();
         }
     }
 }

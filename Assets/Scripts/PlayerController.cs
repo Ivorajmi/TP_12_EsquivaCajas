@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.RightArrow)){
-            transform.Translate(2f,0,0);
+            if (transform.position.x < 2f)
+                transform.Translate(2f,0,0);
         }
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
-            transform.Translate(-2f,0,0);
+            if (transform.position.x > -2f)
+                transform.Translate(-2f,0,0);
         }
     }
 }
